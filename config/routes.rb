@@ -1,4 +1,10 @@
 Bassein::Application.routes.draw do
+  get "grupy/spisok_g"
+
+  get "grupy/novaia_g"
+
+  get "grupy/sostav_g"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
