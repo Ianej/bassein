@@ -1,10 +1,13 @@
 Bassein::Application.routes.draw do
 
+  match '/spisok_i', :to=>'instruktory#spisok_i'
+  match '/izmenenie_i', :to=> 'instruktory#izmenenie_i'
+  match '/novyi_i', :to=>'instruktory#novyi_i'
   match '/spisok_g', :to=> 'gruppy#spisok_g'
   match '/novaia_g', :to=> 'gruppy#novaia_g'
   match '/sostav_g', :to=> 'gruppy#sostav_g'
-  match '/izmenenie_b', :to=>'basein#izmenenie_b'
-  match '/', :to=>'basein#sostav_b'
+  match '/izmenenie_b', :to=>'bassein#izmenenie_b'
+  root :to=>'bassein#sostav_b'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
