@@ -1,9 +1,10 @@
 Bassein::Application.routes.draw do
-  get "grupy/spisok_g"
 
-  get "grupy/novaia_g"
-
-  get "grupy/sostav_g"
+  match '/spisok_g', :to=> 'gruppy#spisok_g'
+  match '/novaia_g', :to=> 'gruppy#novaia_g'
+  match '/sostav_g', :to=> 'gruppy#sostav_g'
+  match '/izmenenie_b', :to=>'basein#izmenenie_b'
+  match '/', :to=>'basein#sostav_b'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -53,7 +54,7 @@ Bassein::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/index_.html.
   # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
