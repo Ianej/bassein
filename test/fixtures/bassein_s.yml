@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  razmer_b: 1
+  razdevalka_m: 1
+  razdevalka_d: 1
+
+two:
+  razmer_b: 1
+  razdevalka_m: 1
+  razdevalka_d: 1

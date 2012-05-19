@@ -1,2 +1,21 @@
-<h1>Bassein#izmenenie_b</h1>
-<p>Find me in app/views/bassein/izmenenie_b.html.erb</p>
+<h1 xmlns="http://www.w3.org/1999/html">Izmenenie vmestimosti:</h1>
+<!---->
+<%= form_for(@bassein1) do |f|%>
+    <table >
+      <tr ALIGN=left> <div class="field">
+        <th><%= f.label :razmer_b, "Bassein" %></th>
+        <td><%= f.text_field :razmer_b %></td>
+    </div></tr>
+      <div class="field">
+        <tr ALIGN=left><th><%= f.label :razdevalka_m, "Mal'chiki" %></th>
+        <td><%=  f.text_field :razdevalka_m %></td></tr>
+    </div>
+    <div class="field">
+      <tr ALIGN=left><th><%=  f.label :razdevalka_d, "Devochki" %></th>
+      <td><%= f.text_field :razdevalka_d %></td></tr>
+    </div>
+    <div class="actions">
+      <tr><td ALIGN=center COLSPAN=2><%= f.submit "Sohranit'" %> </td></tr>
+    </div>
+    </table>
+<% end %>
