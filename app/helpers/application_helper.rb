@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def zagolovok
+  def title
     nacalnyi_zagolovok = "Upravlenie basseinom"
     @title==nil ? nacalnyi_zagolovok : "#{nacalnyi_zagolovok} | #{@title}"
 

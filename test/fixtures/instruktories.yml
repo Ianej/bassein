@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  imia: MyString
+  gruppy_id: 1
+
+two:
+  imia: MyString
+  gruppy_id: 1

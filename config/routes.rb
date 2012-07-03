@@ -1,18 +1,27 @@
-Bassein::Application.routes.draw do
-  root :to=>'bassein#show'
-  #resources :bassein1 , :path_names => {:show => 'sostav_b',:edit=> 'izmenenie_b' } ,:controller => 'bassein'
-  resources :bassein1 ,:controller => 'bassein', :only=>[:show, :update]
+Pool1::Application.routes.draw do
 
+  resources :groups#, only: :index, controller: 'groups'
+  #delete 'groups/:id' , :to=>'groups#destroy'
+  #get 'groups/new'
+  #match 'groups/new', :to => 'groups#new'
+
+  resource :pools#, as: "pools", :controller => 'pools'
+  root :to => 'pools#show'
+  #resources :bassein1 , :path_names => {:show => 'sostav_b',:edit=> 'edit' } ,:controller => 'bassein'
+  #get '/pools/:id', as: :pool, to: 'pools#show'
+  resources :instructors#, :controller => 'instructors'
+  #resources :bassein1s, :collection => { :spisok => :get }
   #match '/sostav_b', :to=>'bassein#show'
-  match '/spisok_i', :to=>'instruktory#spisok_i'
-  match '/izmenenie_i', :to=> 'instruktory#izmenenie_i'
-  match '/novyi_i', :to=>'instruktory#novyi_i'
-  match '/spisok_g', :to=> 'gruppy#spisok_g'
-  match '/novaia_g', :to=> 'gruppy#novaia_g'
-  match '/sostav_g', :to=> 'gruppy#sostav_g'
-  match '/izmenenie_b', :to=>'bassein#izmenenie_b'
-  #match "/bassein1s/:id" => "bassein#izmenenie_b"
-  #match "/bassein1s/:id/show" => "bassein#izmenenie_b"
+  #match '/show', :to=>'instructors#show'
+  #match '/edit', :to=> 'instructors#edit'
+  #match '/new', :to=>'instructors#new'
+
+  #match '/index', :to => 'groups#index'
+  #match '/new', :to => 'groups#new'
+  #match '/show', :to => 'groups#show'
+  #match '/edit', :to => 'bassein#edit'
+  #match "/bassein1s/:id" => "bassein#edit"
+  #match "/bassein1s/:id" => "bassein#edit"
 
 
   # The priority is based upon order of creation:

@@ -1,0 +1,8 @@
+<h1>Grupy#novaia</h1>
+<p>Find me in app/views/grupy/novaia.html.erb</p>
+Kolichestvo mujchin i jenschi v summe ne > <%= Pool.first.size_pool %> <%= @tuttt  %>
+
+<%= form_for :group, url:{action: :create} do |f| %>
+   <%= render 'form_group',:f=>f %>
+    <%=	 link_to "Nazad", groups_path %>
+<% end %>

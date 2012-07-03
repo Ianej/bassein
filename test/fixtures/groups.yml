@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name_group: MyString
+  number_of_mens: 1
+  number_of_womens: 1
+  day_of_the_week: MyString
+  time_workout: 2012-06-22 22:11:32
+
+two:
+  name_group: MyString
+  number_of_mens: 1
+  number_of_womens: 1
+  day_of_the_week: MyString
+  time_workout: 2012-06-22 22:11:32

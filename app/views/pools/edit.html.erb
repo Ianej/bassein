@@ -1,0 +1,22 @@
+<h1 xmlns="http://www.w3.org/1999/html">Izmenenie vmestimosti:</h1>
+<!---->
+<!--< %= form_for @pool, :url => {:controller => 'pools', :action => :update } do |f|%>-->
+<%= form_for @pool , :url => { :action => :update } do |f|%>
+    <table >
+      <tr ALIGN=left> <div class="field">
+        <th><%= f.label :size_pool, "Pool" %></th>
+        <td><%= f.text_field :size_pool, :size=>1 %></td>
+      </div></tr>
+      <div class="field">
+        <tr ALIGN=left><th><%= f.label :mens_locker_room, "Mal'chiki" %></th>
+        <td><%=  f.text_field :mens_locker_room, :size=>1 %></td></tr>
+    </div>
+    <div class="field">
+      <tr ALIGN=left><th><%=  f.label :womens_locker_room, "Devochki" %></th>
+      <td><%= f.text_field :womens_locker_room, :size=>1 %></td></tr>
+    </div>
+    <div class="actions">
+      <tr><td ALIGN=center COLSPAN=2><%= f.submit "Sohranit'" %> </td></tr>
+    </div>
+    </table>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Grupy#sostav_g</h1>
+<p>Find me in app/views/grupy/sostav_g.html.erb</p>
+
+    <ul> Nazvanie gruppy: <%= @group.name_group %></ul>
+<ul>Kolichestvo mujchin v gruppe: <%= @group.number_of_mens%></ul>
+  <ul>Kolichestvo jenschin v gruppe: <%= @group.number_of_womens %></ul>
+<ul>Den' nedeli: <%= @group.day_of_the_week %></ul>
+<ul>Vremia zaniatii: <%= @group.time_workout%></ul>
+<ul></ul>
+<ul></ul>
+<%= link_to "Nazad", groups_path %>
+<%= link_to "Izmenit'", edit_group_path %>

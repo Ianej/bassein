@@ -1,0 +1,24 @@
+<% if @group.errors.any? %>
+    <div id="errorExplanation">
+      <h2> <%= pluralize(@group.errors.count, "error") %> ne mojet byt' sohranena gruppa:</h2>
+      <ul> <% @group.errors.full_messages.each do |msg| %>
+            <li><%=  msg%></li>
+        <% end %> </ul></div>
+<% end %><br />
+<%= f.label "Nazvanie gruppy" %>
+<%= f.text_field :name_group %><br />
+<%= f.label "Kolichestvo mujchin ne > #{Pool.first.mens_locker_room}" %>
+<%= f.text_field :number_of_mens %><br />
+<%= f.label "Kolichestvo jenschin ne > #{Pool.first.womens_locker_room}" %>
+<%= f.text_field :number_of_womens %><br />
+<%= f.label "Den' nedeli'" %>
+<%= f.select :day_of_the_week,%w{pn vt sr cht pt sb vs} %><br />
+<!-- < %=[['pn', 1], ['vt', 2],['sr',3],['cht',4],['pt',5],['sb',6],['vs',7]] %><br /> -->
+<!-- < %= f.text_field :day_of_the_week %> -->
+<%= f.label "Vremia trenirovki" %>
+<%= f.time_select :time_workout, default: nil, minute_step: 5 %><br />
+<% if @group.id.nil? %>
+    <%=	 f.submit "Sozdat'" %>
+    <% else %>
+    <%= f.submit "Izmenit'" %>
+<%end%>

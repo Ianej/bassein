@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Bassein::Application.load_tasks
+Pool1::Application.load_tasks

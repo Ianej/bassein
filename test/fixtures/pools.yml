@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  size_pool: 1
+  mens_locker_room: 1
+  womens_locker_room: 1
+
+two:
+  size_pool: 1
+  mens_locker_room: 1
+  womens_locker_room: 1

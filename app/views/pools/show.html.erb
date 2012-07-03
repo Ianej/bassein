@@ -1,0 +1,10 @@
+<h1>Bassein#show</h1>
+<p>Find me in app/views/bassein/show.html.erb</p>
+    <div class="field">
+      <%= "Pool rasschitan na #{@pool.size_pool} chel." %> <br/>
+      <%=  "Mujskaia razdevalka vmeschaet #{@pool.mens_locker_room} chel."%> <br/>
+      <%=  "Jenskaia razdevalka vmeschaet #{@pool.womens_locker_room} chel."%>
+    </div>
+
+
+<%=link_to "Izmenit' parametry basseina",edit_pools_path , :class =>"izm_bas_button round" %>

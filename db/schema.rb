@@ -10,20 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509063758) do
+ActiveRecord::Schema.define(:version => 20120622181132) do
 
-  create_table "bassein1s", :force => true do |t|
-    t.integer  "razmer_b"
-    t.integer  "razdevalka_m"
-    t.integer  "razdevalka_d"
+  create_table "groups", :force => true do |t|
+    t.string   "name_group"
+    t.integer  "number_of_mens",   :default => 0
+    t.integer  "number_of_womens", :default => 0
+    t.string   "day_of_the_week"
+    t.time     "time_workout"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bassein_s", :force => true do |t|
-    t.integer  "razmer_b"
-    t.integer  "razdevalka_m"
-    t.integer  "razdevalka_d"
+  create_table "instructors", :force => true do |t|
+    t.string   "name_instructor"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pools", :force => true do |t|
+    t.integer  "size_pool",          :default => 0
+    t.integer  "mens_locker_room",   :default => 0
+    t.integer  "womens_locker_room", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
