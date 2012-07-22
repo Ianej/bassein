@@ -1,0 +1,13 @@
+<li><%= link_to instructor.name_instructor, instructor_path(instructor) %>
+  <% g_id_n=0 %>
+  <% number_group=0 %>
+  <% instructor.groups.order(:id).each do |group| %>
+  <% g_id=group.id %>
+      <%if g_id!=g_id_n    %>
+         <% g_id_n=g_id %>
+          <% number_group+=1 %>
+      <% end %>
+      <% end %>
+  <%="Vedet #{instructor.trainings.count} zaniatii v #{number_group} gr."  %>
+  <%= link_to "Izmenit'", edit_instructor_path(instructor) %>
+  <%= link_to "Udalit'",{action: :destroy, :id=>instructor.id}  ,method: :delete, confirm: "V nature?", title: "Udalit' #{instructor.name_instructor}" %></li>

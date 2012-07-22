@@ -78,7 +78,7 @@ nav ul li a:hover {
 
 /* Sign up button */
 
-a.izm_bas_button {
+a.button_to_create {
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -86,16 +86,43 @@ a.izm_bas_button {
     width: 240px;
     color: #fff;
     background: #006400;
-    font-size: 100%;
+
     font-weight: bold;
     padding: 20px;
 }
 
 /* Round corners */
 
+
 .round {
     color: #2e5d30;
     -moz-border-radius:    10px;
     -webkit-border-radius: 10px;
     border-radius:         10px;
+}
+.time_workout{
+    font-size: 70%;
+    background: #b3d691;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+    padding: 10px;
+}
+.centering_buttons{
+    text-align: center;
+    margin-top: 40px;
+}
+a.link_button{
+    /*margin-left: auto;
+    margin-right: auto;*/
+
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    color: #fff;
+    background: #141948;
+    font-size: 90%;
+    font-weight: bold;
+    padding: 2px;
+
 }

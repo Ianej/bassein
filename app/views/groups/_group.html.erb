@@ -1,0 +1,17 @@
+    <li>
+      <% if @instructor.nil? %>
+          <%= link_to group.name_group, group%>
+          <%= link_to "Izmenit'",edit_group_path(group), {:index_g=>1} %>
+          <%= link_to "udalit'", {:action => :destroy,:id=> group.id} , :method => :delete, :confirm => "Chto pravda?", :title => "Udalit' #{group.name_group}" %>
+          <!-- |  < %= link_to "Nill" %> -->
+
+      <% else %>
+          <%= link_to group.name_group, instructor_group_path(@instructor.id,group.id)%>
+          <% unless group.training_times.blank? %>
+          |  <%= link_to "Trenerovat' gruppu na vseh zaniatiiah", {:action => :create,:controller => :trainings,:group_id=>group.id,:instructor_id=>@instructor.id}, :method => :post %>
+          <!-- < %= group.submit "Dobavit' gruppu", %> -->
+              <% else %>
+          | Zaniati' net
+          <% end %>
+      <% end %>
+    </li>

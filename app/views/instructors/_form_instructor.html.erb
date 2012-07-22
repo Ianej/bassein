@@ -1,0 +1,10 @@
+<%= render 'layouts/errors', :message_error=>@instructor %>
+<%= f.label "Instructor" %>
+<%= f.text_field :name_instructor %>
+<% if @instructor.id.nil? %>
+<%= f.submit "Sozdat'" %>
+<% else %>
+<%= f.submit "Izmenit'" %>
+<% end %>
+<div class="centering_buttons">
+<%= link_to "Nazad", instructors_path,:class =>"link_button round" %></div>

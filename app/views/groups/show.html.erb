@@ -2,11 +2,32 @@
 <p>Find me in app/views/grupy/sostav_g.html.erb</p>
 
     <ul> Nazvanie gruppy: <%= @group.name_group %></ul>
-<ul>Kolichestvo mujchin v gruppe: <%= @group.number_of_mens%></ul>
-  <ul>Kolichestvo jenschin v gruppe: <%= @group.number_of_womens %></ul>
-<ul>Den' nedeli: <%= @group.day_of_the_week %></ul>
-<ul>Vremia zaniatii: <%= @group.time_workout%></ul>
-<ul></ul>
-<ul></ul>
-<%= link_to "Nazad", groups_path %>
-<%= link_to "Izmenit'", edit_group_path %>
+<ul>Kolichestvo mujchin v gruppe: <%= @group.number_of_men%></ul>
+  <ul>Kolichestvo jenschin v gruppe: <%= @group.number_of_women %></ul>
+  <!-- <li>
+    < %=@instructor.groups %><br/>
+    < %= @training_time.group %>
+  </li> -->
+
+
+<div class="time_workout">   <% %w{pn vt sr cht pt sb vs}.each do |dn| %>
+
+    <% unless @group.training_times.find_all_by_day_of_the_week(dn).blank? %>
+    <h2> <%= "Den' nedeli: #{dn}" %></h2>
+<%= render :partial => "training_times/training_times",:collection => @group.training_times.order("time_workout ASC").find_all_by_day_of_the_week(dn) %>
+    <% end %>
+ <% end %></div>
+
+
+<% unless params[:instructor_id].blank? %>
+    <div class="centering_buttons">
+<%= link_to "K spisku grupp", instructor_groups_path ,:class =>"link_button round"%>
+<%= link_to "K sebe #{@instructor.name_instructor}", instructor_path(@instructor.id) ,:class =>"link_button round"%>
+    </div>
+<% else %>
+    <%= render 'training_times/time_workout' %>
+    <div class="centering_buttons">
+    <%= link_to "K spisku grupp", groups_path,:class =>"link_button round" %>
+    <%= link_to "Izmenit'", edit_group_path,:class =>"link_button round" %>
+    </div>
+<% end %>

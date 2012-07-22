@@ -1,0 +1,7 @@
+<% if message_error.errors.any? %>
+    <div id="errorExplanation">
+      <h2> <%= pluralize(message_error.errors.count, "error") %> ne mojet byt' sohraneno:</h2>
+      <ul> <% message_error.errors.full_messages.each do |msg| %>
+            <li><%=  msg%></li>
+        <% end %> </ul></div>
+<% end %><br />

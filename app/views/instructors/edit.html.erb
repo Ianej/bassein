@@ -1,2 +1,5 @@
 <h1>Instructors#edit</h1>
 <p>Find me in app/views/Instructors/edit.html.erb</p>
+<% form_for @instructor do |f| %>
+    <%= render 'form_instructor', f: f%>
+<% end %>

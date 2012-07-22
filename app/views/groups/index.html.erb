@@ -1,10 +1,6 @@
 <h1>Grupy#spisok_g</h1>
 <p>Find me in app/views/grupy/index.html.erb</p>
-<% @group.each do |group|  %>
+<%= render @group %>
 
-   <li> <%= link_to group.name_group, group %>
-    <%= link_to "Izmenit'", edit_group_path(group) %>
-     <%= link_to "udalit'", {:action => :destroy,:id=> group.id} , :method => :delete, :confirm => "Chto pravda?", :title => "Udalit' #{group.name_group}" %></li>
-<% end %>
-<%= link_to "Novaia gruppa", new_group_path, :class => "izm_bas_button round"  %>
+<%= link_to "Novaia gruppa", new_group_path, :class => "button_to_create round"  %>
 

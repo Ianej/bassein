@@ -1,6 +1,10 @@
 Pool1::Application.routes.draw do
 
-  resources :groups#, only: :index, controller: 'groups'
+  resources :groups# do
+    #resources :training_times, :only=> [:create, :destroy]
+ # end
+  resources :training_times, :only=> [:create, :destroy]
+  #, only: :index, controller: 'groups'
   #delete 'groups/:id' , :to=>'groups#destroy'
   #get 'groups/new'
   #match 'groups/new', :to => 'groups#new'
@@ -9,7 +13,11 @@ Pool1::Application.routes.draw do
   root :to => 'pools#show'
   #resources :bassein1 , :path_names => {:show => 'sostav_b',:edit=> 'edit' } ,:controller => 'bassein'
   #get '/pools/:id', as: :pool, to: 'pools#show'
-  resources :instructors#, :controller => 'instructors'
+  resources :instructors do#, :controller => 'instructors'
+   resources :groups
+  end
+  resources :trainings, :only=> [:create, :destroy, :update]
+
   #resources :bassein1s, :collection => { :spisok => :get }
   #match '/sostav_b', :to=>'bassein#show'
   #match '/show', :to=>'instructors#show'

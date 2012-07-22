@@ -1,0 +1,35 @@
+<!-- <ul>Den' nedeli: < %= training_times.day_of_the_week %></ul> -->
+<ul>Vremia zaniatii: <%= training_times.time_workout%>
+  | Prodoljitel'nost' <%= training_times.duration_of_workout %>
+  <% @training_time= @training.find_by_training_time_id(training_times.id)%>
+  <!-- training_times.id < %= training_times.id %>  -->
+  | Trener
+  <% if @training_time.nil?  %>
+       NET
+      <% unless @instructor.nil? %>
+
+              <%= link_to "Dobavit'", {:action => :create, :controller => :trainings, :trainings =>{:instructor_id=>@instructor.id, :group_id=>@group.id, :training_time_id=>training_times.id} }, :method => :post %>
+      <% else %>
+      <%= link_to "Udalit'", {:action => :destroy, :controller => :training_times}, :method => :delete, :confirm => "Udalit' zaniatie?" %>
+      <% end %>
+      <% else %>
+      <% @instructor_name=@instructor_group.find_by_id(@training_time.instructor_id) %>
+   <%= link_to @instructor_name.name_instructor, instructor_path(@instructor_name) %> <br/>
+
+      <% unless @instructor.nil? %>
+          <% if @training_time.instructor_id == @instructor.id %>
+              <%= link_to "Iskliuchit'", {:action => :destroy, :controller => :trainings, :trainings =>{:instructor_id=>@instructor.id, :group_id=>@group.id, :training_time_id=>training_times.id} }, :method => :delete %>
+          <% else %>
+              <%= link_to "Zamenit'", {:action => :update, :controller => :trainings, :instructor_id_old=>@instructor_name.id,:trainings =>{:instructor_id=>@instructor.id, :group_id=>@group.id, :training_time_id=>training_times.id} }, :method => :put %>
+          <% end %>
+
+
+      <% else %>
+          <%= link_to "Udalit'", {:action => :destroy, :controller => :training_times,:training_time_id=>training_times.id}, :method => :delete, :confirm => "Udalit' zaniatie?" %>
+
+      <% end %>
+  <% end %>
+
+</ul>
+<ul></ul>
+<ul></ul>

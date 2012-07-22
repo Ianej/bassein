@@ -1,0 +1,18 @@
+<div class="round">
+  <br/>
+  <br/>
+
+<%= form_for @group.training_times.build,:url =>  {:action=>  :create, :controller=>:training_times} do |f| %>
+<%= f.label "Den' nedeli'" %>
+<%= f.select :day_of_the_week,%w{pn vt sr cht pt sb vs} %><br />
+<!-- < %=[['pn', 1], ['vt', 2],['sr',3],['cht',4],['pt',5],['sb',6],['vs',7]] %><br /> -->
+<!-- < %= f.text_field :day_of_the_week %> -->
+<%= f.label "Nachalo trenirovki v" %>
+<%= f.time_select :time_workout, default: nil, minute_step: 5 %><br />
+
+      <%= f.label "Prodoljitel'nost' trenerovki "%>
+    <%= f.time_select :duration_of_workout, :default=>nil, :minute_step=>5%>
+    <%= f.hidden_field :group_id, :value=>@group.id %>
+     <%= f.submit "Dobavit'"  %>
+<% end %>
+</div>

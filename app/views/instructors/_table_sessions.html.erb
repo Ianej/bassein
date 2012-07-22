@@ -1,0 +1,25 @@
+<table border="hidden">
+  <tr>
+    <td> Day week </td> <td>Name group</td><td>Beginning workout</td><td>Duration workout</td><td> </td>
+  </tr>
+  <% %w{pn vt sr cht pt sb vs}.each do |dw| %>
+      <% day_week=dw %>
+      <% day_week_old="" %>
+
+      <% @training_times.find_all{|t| t[:day_of_the_week]=~/#{dw}/}.each do |training_times| %>
+
+
+          <tr>  <%unless day_week_old==day_week  %>
+                <td> <%= training_times.day_of_the_week %></td>
+                <% day_week_old=day_week %>
+            <% else %>
+                <td> </td>
+            <% end %>
+            <td> <%= link_to Group.find(training_times.group_id).name_group, instructor_group_path(@instructor.id,training_times.group_id) %> </td>
+            <td><%= training_times.time_workout %> </td>
+            <td> <%= training_times.duration_of_workout %></td>
+            <td> <%= link_to "Udalit'", {:action => :destroy, :controller => :trainings, :group_id=>training_times.group_id, :instructor_id=>@instructor.id,:training_time_id =>training_times.id },:method => :delete,:confirm => "Horosho podumali?"%></td>
+          </tr>
+
+      <% end  %>
+  <% end %> </table>

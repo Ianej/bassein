@@ -1,24 +1,29 @@
-<% if @group.errors.any? %>
-    <div id="errorExplanation">
-      <h2> <%= pluralize(@group.errors.count, "error") %> ne mojet byt' sohranena gruppa:</h2>
-      <ul> <% @group.errors.full_messages.each do |msg| %>
-            <li><%=  msg%></li>
-        <% end %> </ul></div>
-<% end %><br />
+<%= render 'layouts/errors', :message_error=>@group %>
+params[:index_g]<%= @index_g.nil? %>
 <%= f.label "Nazvanie gruppy" %>
 <%= f.text_field :name_group %><br />
-<%= f.label "Kolichestvo mujchin ne > #{Pool.first.mens_locker_room}" %>
-<%= f.text_field :number_of_mens %><br />
-<%= f.label "Kolichestvo jenschin ne > #{Pool.first.womens_locker_room}" %>
-<%= f.text_field :number_of_womens %><br />
-<%= f.label "Den' nedeli'" %>
-<%= f.select :day_of_the_week,%w{pn vt sr cht pt sb vs} %><br />
-<!-- < %=[['pn', 1], ['vt', 2],['sr',3],['cht',4],['pt',5],['sb',6],['vs',7]] %><br /> -->
-<!-- < %= f.text_field :day_of_the_week %> -->
-<%= f.label "Vremia trenirovki" %>
-<%= f.time_select :time_workout, default: nil, minute_step: 5 %><br />
+<%= f.label "Kolichestvo mujchin ne > #{Pool.first.men_locker_room}" %>
+<%= f.text_field :number_of_men %><br />
+<%= f.label "Kolichestvo jenschin ne > #{Pool.first.women_locker_room}" %>
+<%= f.text_field :number_of_women %><br />
+<%= @group1=Group.new(params[:group]) %>
+<%= @group1.number_of_men %>
+<%= @group1.number_of_women %>
+<%= f.hidden_field :summary_number, :value=>@group1.number_of_men.to_i %>
 <% if @group.id.nil? %>
     <%=	 f.submit "Sozdat'" %>
-    <% else %>
+    <div class="centering_buttons">
+      <%=	 link_to "Nazad k spisku grupp", groups_path,:class =>"link_button round" %>
+    </div>
+<% else %>
+
     <%= f.submit "Izmenit'" %>
+    <div class="centering_buttons">
+      <%=	 link_to "Nazad", group_path(@group.id),:class =>"link_button round" %>
+    </div>
 <%end%>
+<!--% if @index_g %>
+
+    < % else %>
+
+< % end %-->

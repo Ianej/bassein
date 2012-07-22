@@ -2,7 +2,11 @@
 <p>Find me in app/views/Instructors/index.html.erb</p>
 <p>rrrr</p>
 <div class="round">
-  <%= @instructor %>
-
+   <%= render @instructor %>
+  <!--< %= @group %><br/>
+  < %= @i_i %><br/>
+  < %= @i_i1 %><br/>
+  @i_i1.instructor_id:< %= @i_i1.instructor_id %><br/>
+  @i_i1.group_id:< %= @i_i1.group_id %><br/> -->
 </div>
-<%= link_to "Dobavit' Instructor", new_instructor_path, :class => "izm_bas_button round" %>
+<%= link_to "Dobavit' Instructora", new_instructor_path, :class => "button_to_create round" %>

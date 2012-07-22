@@ -1,2 +1,44 @@
 <h1>Instructors#show</h1>
 <p>Find me in app/views/Instructors/show.html.erb</p>
+<h2> <%= @instructor.name_instructor %></h2>
+ <% g_id_n=0 %>
+
+<% array_training_times=[] %>
+<% @instructor.groups.order(:id).each do |groups|  %>
+    <%g_id=groups.id%>
+    <%@group=Group.find(groups.id)  %>
+
+    <% if g_id_n!=g_id %>
+        <% g_id_n=g_id %>
+
+
+
+      <!-- < %= groups.name_group %>
+
+ < %= Training.find_all_by_instructor_id_and_group_id(params[:instructor_id],params[:group_id]).each do |training| %> -->
+          <% Training.find_all_by_instructor_id_and_group_id(@instructor.id,groups.id).each do |training| %>
+       <% @training_times=(TrainingTime.find(training.training_time_id)) %>
+          <% array_training_times<<@training_times.id %>
+
+
+          <% end %>
+
+
+        <% end %>
+
+<% end %>
+
+<!-- %= @training_times=TrainingTime.all(:conditions =>{:group_id=>array_groups,:id=>[array_training_times]} ) %>
+< %= @training_times=TrainingTime.where(:id=>array_training_times) % -->
+
+<%@training_times=TrainingTime.order("day_of_the_week ASC, time_workout ASC").find_all_by_id(array_training_times) %>
+<% unless @training_times.blank? %>
+<%= render 'table_sessions' %>
+<% end %>
+<br/>
+<div class="centering_buttons">
+ <%= link_to "Dobavilenie gruppy", instructor_groups_path(@instructor),:class =>"link_button round" %>
+<%= link_to "Izmenit'", edit_instructor_path(@instructor),:class =>"link_button round" %>
+<%= link_to "K spisku instruktorov", instructors_path,:class =>"link_button round" %>
+</div>
+<%=  %>

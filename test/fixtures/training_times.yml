@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  group_id: 1
+  day_of_the_week: MyString
+  time_workout: 2012-07-13 11:31:31
+  duration_of_workout: 2012-07-13 11:31:31
+
+two:
+  group_id: 1
+  day_of_the_week: MyString
+  time_workout: 2012-07-13 11:31:31
+  duration_of_workout: 2012-07-13 11:31:31
